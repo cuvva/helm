@@ -3,7 +3,17 @@ entries:
   service:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-15T17:29:48.337354+01:00"
+    created: "2023-08-15T17:41:05.396116+01:00"
+    description: A Helm chart for Kubernetes
+    digest: bfd9a8b3151b3f0942b42ab4d7ff1997642f84f999e40b18b0126cacfd6b0dd6
+    name: service
+    type: application
+    urls:
+    - https://julesjcraske.github.io/helm-repo/service-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-08-15T17:41:05.395734+01:00"
     description: A Helm chart for Kubernetes
     digest: 154bdc74d2535b04b70e253f02d87194dc08aa3a56e669f1e7d4d4532cd39f79
     name: service
@@ -13,7 +23,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-15T17:29:48.336916+01:00"
+    created: "2023-08-15T17:41:05.393477+01:00"
     description: A Helm chart for Kubernetes
     digest: dc636b6586968f8c98471fd24b8fb8e1db2729da160fd372ad684a8d78d3b916
     name: service
@@ -23,7 +33,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-15T17:29:48.335866+01:00"
+    created: "2023-08-15T17:41:05.392429+01:00"
     description: A Helm chart for Kubernetes
     digest: 3623baf29d76c350ceda3abcf8d3d6cada2eb4418dedc28da895898da437ae25
     name: service
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://julesjcraske.github.io/helm-repo/service-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-15T17:29:48.334749+01:00"
+generated: "2023-08-15T17:41:05.391289+01:00"

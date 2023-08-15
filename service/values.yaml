@@ -13,6 +13,7 @@ image:
 
 # An object of environment variables
 env:
+  EXAMPLE_ENV: test
 
 imagePullSecrets: []
 nameOverride: ""

@@ -34,9 +34,9 @@ spec:
             {{- toYaml .Values.image.args | nindent 12 }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            {{- range .Values.env}}
-            - name: {{ .key}}
-              value: {{ .value}}
+            {{- range $key, $value := .Values.env}}
+            - name: {{ $key }}
+              value: {{ $value }}
             {{- end}}
           ports:
             - name: http

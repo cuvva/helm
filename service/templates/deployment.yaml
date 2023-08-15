@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "service.fullname" . }}
+  name: {{ include "service.name" . }}
   labels:
     {{- include "service.labels" . | nindent 4 }}
 spec:
@@ -24,7 +24,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "service.serviceAccountName" . }}
+      serviceAccountName: service-{{ include "service.name" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -35,17 +35,18 @@ spec:
           args:
             {{- toYaml .Values.image.args | nindent 12 }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            {{- range .Values.env}}
+            - name: {{ .key}}
+              value: {{ .value}}
+            {{- end}}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /system/health
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

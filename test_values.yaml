@@ -1,0 +1,12 @@
+image:
+  repository: my-docker-image
+  tag: my-image-tag
+  args: ["command-arg"]
+
+env:
+  CONFIG: >-
+    {
+      "json_field": [
+        "array_value"
+      ]
+    }

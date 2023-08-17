@@ -32,6 +32,8 @@ spec:
             {{- toYaml .Values.image.args | nindent 12 }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            - name: DD_VERSION
+              value: {{- .Values.image.tag }}
             {{- range $key, $value := .Values.env}}
             - name: {{ $key }}
               value: {{ $value | quote }}

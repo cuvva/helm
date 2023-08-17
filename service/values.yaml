@@ -11,6 +11,8 @@ image:
   tag: ""
   args: []
 
+environment: dev
+
 # An object of environment variables
 env:
   EXAMPLE_ENV: test
@@ -22,7 +24,8 @@ serviceAccount:
   # Annotations to add to the service account
   annotations: {}
 
-podAnnotations: {}
+podAnnotations:
+  admission.datadoghq.com/js-lib.version: "v4.6.0"
 
 podSecurityContext: {}
   # fsGroup: 2000

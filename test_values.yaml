@@ -3,6 +3,12 @@ image:
   tag: my-image-tag
   args: ["command-arg"]
 
+nameOverride: "notebook"
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::account-id:role/env-service-notebook"
+
+environment: "prod"
 env:
   CONFIG: >-
     {

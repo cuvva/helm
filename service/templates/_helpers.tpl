@@ -6,6 +6,13 @@ Expand the name of the chart.
 {{- end }}
 
 {{/*
+Expand the name of the chart.
+*/}}
+{{- define "service.prefixedName" -}}
+service-{{- include "service.name" . }}
+{{- end }}
+
+{{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "service.chart" -}}
@@ -17,17 +24,16 @@ Common labels
 */}}
 {{- define "service.labels" -}}
 helm.sh/chart: {{ include "service.chart" . }}
-{{ include "service.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{ include "service.selectorLabels" . }}
+tags.datadoghq.com/env: {{ .Values.environment }}
+tags.datadoghq.com/service: {{ include "service.name" . }}
+tags.datadoghq.com/version: {{ .Values.image.repository }}:{{ .Values.image.tag }}
 {{- end }}
 
 {{/*
 Selector labels
 */}}
 {{- define "service.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "service.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app: {{ include "service.name" . }}
 {{- end }}

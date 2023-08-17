@@ -3,7 +3,17 @@ entries:
   service:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.888682+01:00"
+    created: "2023-08-17T15:10:19.766876+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 2b290cba3dbc6d0ccaa80728aacabd873705d4ec58bc45d60a42911593393e8c
+    name: service
+    type: application
+    urls:
+    - https://julesjcraske.github.io/helm-repo/service-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-08-17T15:10:19.759946+01:00"
     description: A Helm chart for Kubernetes
     digest: 9286c6f73d33c43f60f3daab0bcc999531d8cd0f9104cfe48e5d5f409e1d2920
     name: service
@@ -13,7 +23,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.893967+01:00"
+    created: "2023-08-17T15:10:19.766504+01:00"
     description: A Helm chart for Kubernetes
     digest: 3a018620fa39e0b860cab4e85c548d7daa74e613a1f32faddd6ca6346c90a6ee
     name: service
@@ -23,7 +33,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.893375+01:00"
+    created: "2023-08-17T15:10:19.765638+01:00"
     description: A Helm chart for Kubernetes
     digest: aeecac6f523398d2fca1edf1183b251028796f2b06ef485992f13b2a850fb4fc
     name: service
@@ -33,7 +43,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.892756+01:00"
+    created: "2023-08-17T15:10:19.76465+01:00"
     description: A Helm chart for Kubernetes
     digest: c18ca3cd2697dd4a83a7997cfacc61607a1e4bb518628322be39ab9ee92aad7f
     name: service
@@ -43,7 +53,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.892146+01:00"
+    created: "2023-08-17T15:10:19.763809+01:00"
     description: A Helm chart for Kubernetes
     digest: 37820022a701edad37d522c4f62e2db07a4f768334cfe9ba18a0bf59269ff69c
     name: service
@@ -53,7 +63,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.891452+01:00"
+    created: "2023-08-17T15:10:19.763143+01:00"
     description: A Helm chart for Kubernetes
     digest: 61ca366cd490e2f54da0e9702fdbaba837bf3f21c75623ddab2ddd95d559c9aa
     name: service
@@ -63,7 +73,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.890861+01:00"
+    created: "2023-08-17T15:10:19.762317+01:00"
     description: A Helm chart for Kubernetes
     digest: e4d8fc346a4a0bdff69594c5ee92bb3d42209ee4d6faf9740ed90c3b22da210f
     name: service
@@ -73,7 +83,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.890096+01:00"
+    created: "2023-08-17T15:10:19.761494+01:00"
     description: A Helm chart for Kubernetes
     digest: bfd9a8b3151b3f0942b42ab4d7ff1997642f84f999e40b18b0126cacfd6b0dd6
     name: service
@@ -83,7 +93,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.889475+01:00"
+    created: "2023-08-17T15:10:19.760816+01:00"
     description: A Helm chart for Kubernetes
     digest: 154bdc74d2535b04b70e253f02d87194dc08aa3a56e669f1e7d4d4532cd39f79
     name: service
@@ -93,7 +103,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.888366+01:00"
+    created: "2023-08-17T15:10:19.75912+01:00"
     description: A Helm chart for Kubernetes
     digest: dc636b6586968f8c98471fd24b8fb8e1db2729da160fd372ad684a8d78d3b916
     name: service
@@ -103,7 +113,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-08-17T14:58:33.8877+01:00"
+    created: "2023-08-17T15:10:19.758214+01:00"
     description: A Helm chart for Kubernetes
     digest: 3623baf29d76c350ceda3abcf8d3d6cada2eb4418dedc28da895898da437ae25
     name: service
@@ -111,4 +121,4 @@ entries:
     urls:
     - https://julesjcraske.github.io/helm-repo/service-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-17T14:58:33.886638+01:00"
+generated: "2023-08-17T15:10:19.757039+01:00"

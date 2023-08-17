@@ -8,6 +8,10 @@ serviceAccount:
   annotations:
     eks.amazonaws.com/role-arn: "arn:aws:iam::account-id:role/env-service-notebook"
 
+ingress:
+  enabled: true
+  className: nginx
+
 environment: "prod"
 env:
   CONFIG: >-

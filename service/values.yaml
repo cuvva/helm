@@ -14,8 +14,7 @@ image:
 environment: dev
 
 # An object of environment variables
-env:
-  EXAMPLE_ENV: test
+env: {}
 
 imagePullSecrets: []
 nameOverride: ""
@@ -52,7 +51,6 @@ ingress:
     - host: chart-example.local
       paths:
         - path: /
-          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

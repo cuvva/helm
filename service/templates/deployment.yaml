@@ -6,23 +6,35 @@ metadata:
     {{- include "service.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+
   selector:
     matchLabels:
       {{- include "service.selectorLabels" . | nindent 6 }}
+
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: "50%"
+      maxUnavailable: "0"
+
   template:
     metadata:
       {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+
       labels:
         cuv-global.app/is-standard-service: "1"
         admission.datadoghq.com/enabled: "true"
         {{- include "service.selectorLabels" . | nindent 8 }}
+
     spec:
       serviceAccountName: {{ include "service.prefixedName" . }}
+      terminationGracePeriodSeconds: 65
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+
       containers:
         - name: main
           securityContext:
@@ -33,7 +45,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: DD_VERSION
-              value: {{- .Values.image.tag }}
+              value: {{ .Values.image.tag }}
             {{- range $key, $value := .Values.env}}
             - name: {{ $key }}
               value: {{ $value | quote }}
@@ -48,7 +60,15 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+
+      dnsConfig:
+        options:
+          - name: "ndots"
+            value: "1"
+
+      dnsPolicy: "ClusterFirst"

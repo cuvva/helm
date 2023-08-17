@@ -28,7 +28,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{ include "service.selectorLabels" . }}
 tags.datadoghq.com/env: {{ .Values.environment }}
 tags.datadoghq.com/service: {{ include "service.name" . }}
-tags.datadoghq.com/version: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+tags.datadoghq.com/version: {{ .Values.image.tag }}
 {{- end }}
 
 {{/*

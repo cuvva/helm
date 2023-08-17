@@ -35,5 +35,5 @@ tags.datadoghq.com/version: {{ .Values.image.tag }}
 Selector labels
 */}}
 {{- define "service.selectorLabels" -}}
-app: {{ include "service.name" . }}
+app: {{ include "service.prefixedName" . }}
 {{- end }}

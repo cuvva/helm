@@ -9,4 +9,4 @@ lint: ## render the template checking for errors
 
 build: ## build
 	helm package ./service
-	helm repo index . --url https://julesjcraske.github.io/helm-repo
+	helm repo index . --url https://cuvva.github.io/helm

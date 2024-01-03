@@ -3,7 +3,17 @@ entries:
   service:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-09-04T12:21:13.291683+01:00"
+    created: "2024-01-03T16:24:41.834484Z"
+    description: A Helm chart for Kubernetes
+    digest: 029db1786ce0f370c65fb7f923f7a3e996989b662f51612ef9b30602879cd7bb
+    name: service
+    type: application
+    urls:
+    - https://cuvva.github.io/helm/service-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-01-03T16:24:41.834033Z"
     description: A Helm chart for Kubernetes
     digest: 29bcc37ae88edce84db4fff48ff827c11821db2b029a5422db6d90b84902bfa4
     name: service
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://cuvva.github.io/helm/service-0.2.5.tgz
     version: 0.2.5
-generated: "2023-09-04T12:21:13.291125+01:00"
+generated: "2024-01-03T16:24:41.832957Z"

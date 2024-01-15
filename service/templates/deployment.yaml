@@ -88,9 +88,9 @@ spec:
                 topologyKey: "kubernetes.io/zone"
                 labelSelector:
                   matchExpressions:
-                    key     : "app"
-                    operator: "In"
-                    values  : [ "{{ include "service.prefixedName" . }}" ]
+                    - key     : "app"
+                      operator: "In"
+                      values  : [ "{{ include "service.prefixedName" . }}" ]
 
             # spread this service's pods across hosts
             - weight: 10
@@ -98,9 +98,9 @@ spec:
                 topologyKey: "kubernetes.io/hostname"
                 labelSelector:
                   matchExpressions:
-                    key     : "app"
-                    operator: "In"
-                    values  : [ "{{ include "service.prefixedName" . }}" ]
+                    - key     : "app"
+                      operator: "In"
+                      values  : [ "{{ include "service.prefixedName" . }}" ]
 
             # spread this service's pods from different namespaces onto other hosts
             # e.g. don't put avocado and basil's quote services on the same host
@@ -110,6 +110,6 @@ spec:
                 namespaces: [ "env-avocado", "env-basil", "env-coconut", "env-pretzel", "env-ephemeral", "env-test" ]
                 labelSelector:
                   matchExpressions:
-                    key     : "app"
-                    operator: "In"
-                    values  : [ "{{ include "service.prefixedName" . }}" ]
+                    - key     : "app"
+                      operator: "In"
+                      values  : [ "{{ include "service.prefixedName" . }}" ]

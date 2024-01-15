@@ -76,3 +76,40 @@ spec:
             value: "1"
 
       dnsPolicy: "ClusterFirst"
+
+      affinity:
+        podAntiAffinity:
+
+          preferredDuringSchedulingIgnoredDuringExecution:
+
+            # spread this service's pods across availability zones
+            - weight: 20
+              podAffinityTerm:
+                topologyKey: "kubernetes.io/zone"
+                labelSelector:
+                  matchExpressions:
+                    key     : "app"
+                    operator: "In"
+                    values  : [ "{{ include "service.prefixedName" . }}" ]
+
+            # spread this service's pods across hosts
+            - weight: 10
+              podAffinityTerm:
+                topologyKey: "kubernetes.io/hostname"
+                labelSelector:
+                  matchExpressions:
+                    key     : "app"
+                    operator: "In"
+                    values  : [ "{{ include "service.prefixedName" . }}" ]
+
+            # spread this service's pods from different namespaces onto other hosts
+            # e.g. don't put avocado and basil's quote services on the same host
+            - weight: 5
+              podAffinityTerm:
+                topologyKey: "kubernetes.io/hostname"
+                namespaces: [ "env-avocado", "env-basil", "env-coconut", "env-pretzel", "env-ephemeral", "env-test" ]
+                labelSelector:
+                  matchExpressions:
+                    key     : "app"
+                    operator: "In"
+                    values  : [ "{{ include "service.prefixedName" . }}" ]

@@ -46,6 +46,14 @@ spec:
           env:
             - name: DD_VERSION
               value: {{ .Values.image.tag }}
+            - name: DD_SERVICE
+              value: {{ include "service.name" . }}
+            - name: DD_SOURCE
+              value: service
+            - name: DD_TRACE
+              value: "true"
+            - name: DD_PROFILING_ENABLED
+              value: "true"
             - name: DD_AGENT_HOST
               valueFrom:
                 fieldRef:

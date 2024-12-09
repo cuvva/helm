@@ -22,6 +22,7 @@ spec:
       {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
+        ad.datadoghq.com/main.logs: '[ { "source":"service", "service":"{{ include "service.name" . }}" } ]'
       {{- end }}
 
       labels:

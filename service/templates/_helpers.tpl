@@ -30,7 +30,6 @@ tags.datadoghq.com/env: {{ .Values.environment }}
 tags.datadoghq.com/service: {{ include "service.name" . }}
 tags.datadoghq.com/source: service
 tags.datadoghq.com/version: {{ .Values.image.tag }}
-ad.datadoghq.com/main.logs: '[ { "source":"service", "service":"{{ include "service.name" . }}" } ]'
 {{- end }}
 
 {{/*

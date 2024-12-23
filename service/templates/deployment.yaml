@@ -76,6 +76,29 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
 
+      {{- range $sidecarName, $sidecar := .Values.sidecars }}
+        - name: {{ $sidecarName }}
+          securityContext:
+        {{- toYaml $.Values.securityContext | nindent 12 }}
+          image: "{{ $sidecar.image.repository }}:{{ $sidecar.image.tag }}"
+          command:
+        {{- toYaml $sidecar.command | nindent 12 }}
+          args:
+        {{- toYaml $sidecar.args | nindent 12 }}
+          imagePullPolicy: {{ $sidecar.image.pullPolicy }}
+          env:
+            - name: DD_VERSION
+              value: {{ $sidecar.image.tag }}
+            - name: DD_SERVICE
+              value: {{ include "service.name" $ }}
+            - name: DD_SOURCE
+              value: service
+        {{- range $key, $value := $sidecar.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+        {{- end}}
+      {{- end }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

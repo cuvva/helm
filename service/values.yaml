@@ -66,8 +66,7 @@ sidecars: {}
   #     command: ["/bin/sh"]
   #     args: ["echo", "hello world"]
   #     env:
-  #       - name: MY_ENV_VAR
-  #         value: my-env-value
+  #       - MY_ENV_VAR: my-env-value
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

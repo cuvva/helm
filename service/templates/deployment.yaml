@@ -76,6 +76,46 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
 
+      {{- range $sidecarName, $sidecar := .Values.sidecars }}
+        - name: {{ $sidecarName }}
+          securityContext:
+            {{- toYaml $.Values.securityContext | nindent 12 }}
+          image: "{{ $sidecar.image.repository }}:{{ $sidecar.image.tag }}"
+          command:
+            {{- toYaml $sidecar.command | nindent 12 }}
+          args:
+            {{- toYaml $sidecar.args | nindent 12 }}
+          env:
+            - name: DD_VERSION
+              value: {{ $sidecar.image.tag }}
+            - name: DD_SERVICE
+              value: {{ include "service.name" $ }}
+            - name: DD_SOURCE
+              value: service
+          {{- if $sidecar.env }}
+              {{- toYaml $sidecar.env | nindent 12 }}
+          {{- end }}
+
+          resources:
+            {{- toYaml $sidecar.resources | nindent 12 }}
+
+        {{- if $sidecar.ports }}
+          ports:
+            {{- toYaml $sidecar.ports | nindent 12 }}
+        {{- end }}
+
+        {{- if $sidecar.readinessProbe }}
+          readinessProbe:
+            {{- toYaml $sidecar.readinessProbe | nindent 12 }}
+        {{- end }}
+
+        {{- if $sidecar.livenessProbe }}
+          livenessProbe:
+            {{- toYaml $sidecar.livenessProbe | nindent 12 }}
+        {{- end }}
+
+      {{- end }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

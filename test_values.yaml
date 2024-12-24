@@ -20,3 +20,37 @@ env:
         "array_value"
       ]
     }
+
+sidecars:
+
+  my-sidecar:
+    image:
+      repository: my-docker-image
+      tag: my-image-tag
+      pullPolicy: IfNotPresent
+    command: ["/bin/sh"]
+    args: ["echo", "hello world"]
+    env:
+      - key: MY_ENV_VAR
+        value: my-env-value
+    ports:
+      - containerPort: 8080
+        protocol: TCP
+      - name: http
+    resources:
+      limits:
+        cpu: 10m
+        memory: 32Mi
+      requests:
+        cpu: 10m
+    readinessProbe:
+      httpGet:
+        path: /health
+        port: 5000
+      initialDelaySeconds: 5
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 5000
+      initialDelaySeconds: 5
+      periodSeconds: 30

@@ -20,3 +20,15 @@ env:
         "array_value"
       ]
     }
+
+sidecars:
+
+  my-sidecar:
+    image:
+      repository: my-docker-image
+      tag: my-image-tag
+      pullPolicy: IfNotPresent
+    command: ["/bin/sh"]
+    args: ["echo", "hello world"]
+    env:
+      MY_ENV: my-env-value

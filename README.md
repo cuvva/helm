@@ -5,6 +5,11 @@ each backend service.
 
 These templates are currently rendered by ArgoCD.
 
+## Development
+
+After making changes to the helm charts, also make changes to the `test_values.yaml` file and run:
+- `make lint` to try rendering the helm chart, check the output is as you expect.
+
 ## Releasing a new version
 
 - Merge the new code changes to master

@@ -62,11 +62,15 @@ sidecars: {}
   #     image:
   #       repository: repo
   #       tag: latest
-  #       pullPolicy: IfNotPresent
   #     command: ["/bin/sh"]
   #     args: ["echo", "hello world"]
   #     env:
-  #       - MY_ENV_VAR: my-env-value
+  #       - key: MY_ENV_VAR:
+  #         value: my-env-value
+  #     resources: ...
+  #     ports: ...
+  #     readinessProbe: ...
+  #     liveness_probe: ...
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
